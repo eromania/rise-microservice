@@ -19,13 +19,23 @@ services:
 #      - "5432:5432"
 #    volumes:
 #      - ./.docker-volumes/postgresql_dev_volume:/var/lib/postgresql/data
-  ocelot:
+#  ocelot:
+#    image: ${DOCKER_REGISTRY-}ocelot
+#    build:
+#        context: .
+#        dockerfile: ApiGateway/Dockerfile
+#    ports:
+#      - "5001:80"
+#    environment:
+#      - ASPNETCORE_ENVIRONMENT=Development
+#      - ASPNETCORE_URLS=http://+:80
+  contactservice:
     image: ${DOCKER_REGISTRY-}contactservice
     build:
-        context: .
-        dockerfile: ApiGateway/Dockerfile
+      context: .
+      dockerfile: ContactService.Api/Dockerfile 
     ports:
-      - "5001:80"
+      - "5005:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
