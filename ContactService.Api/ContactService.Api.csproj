@@ -29,7 +29,6 @@
 
     <ItemGroup>
       <Folder Include="Controllers" />
-      <Folder Include="Infrastrcuture\Persistence\Configurations" />
       <Folder Include="Infrastrcuture\Services" />
     </ItemGroup>
 

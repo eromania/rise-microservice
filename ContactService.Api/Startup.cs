@@ -1,4 +1,11 @@
+using System.Reflection;
+using ContactService.Api.Common.Interfaces;
+using ContactService.Api.Infrastrcuture.Persistence;
+using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ContactService.Api;
 
@@ -14,6 +21,28 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         //app services
+        //infrastructure DI setup
+        services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
+            options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"),
+                b =>
+                {
+                    b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
+                    b.MigrationsHistoryTable(HistoryRepository.DefaultTableName, "System");
+                }));
+
+        services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>()!); 
+       
+        //application DI setup
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
+        services.AddMediatR(Assembly.GetExecutingAssembly());
+        
+        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
+        // //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<>));
+        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
         
         
         services.AddHealthChecks();

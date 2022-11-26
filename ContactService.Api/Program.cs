@@ -1,3 +1,5 @@
+using ContactService.Api.Infrastrcuture.Persistence;
+
 namespace ContactService.Api;
 
 public class Program
@@ -12,9 +14,9 @@ public class Program
 
             try
             {
-                // var context = services.GetRequiredService<ApplicationDbContext>();
+                var context = services.GetRequiredService<ApplicationDbContext>();
 
-                // await ApplicationDbContextSeed.SeedSampleDataAsync(context);
+                await ApplicationDbContextSeed.SeedSampleDataAsync(context);
             }
             catch (Exception ex)
             {
