@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{FD38377E-C228-4051-AE6A-D4ED5E24584A}"
+	ProjectSection(SolutionItems) = preProject
+		..\rise-microservice-private\rise-microservice.drawio.png = ..\rise-microservice-private\rise-microservice.drawio.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{8D34AEB9-AAAD-4705-96E0-B7929EE5817C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clients", "clients", "{73A88DCC-4E03-442C-ACBA-960629214B52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+EndGlobal
