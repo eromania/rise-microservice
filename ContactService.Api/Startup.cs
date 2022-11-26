@@ -1,4 +1,5 @@
 using System.Reflection;
+using ContactService.Api.Common.Behaviours;
 using ContactService.Api.Common.Interfaces;
 using ContactService.Api.Infrastrcuture.Persistence;
 using FluentValidation;
@@ -39,10 +40,10 @@ public class Startup
 
         services.AddMediatR(Assembly.GetExecutingAssembly());
         
-        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
-        // //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<>));
-        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
+        //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<>));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
         
         
         services.AddHealthChecks();

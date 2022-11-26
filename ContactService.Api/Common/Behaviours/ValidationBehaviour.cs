@@ -1,5 +1,6 @@
 using FluentValidation;
 using MediatR;
+using ValidationException = ContactService.Api.Common.Exceptions.ValidationException;
 
 namespace ContactService.Api.Common.Behaviours;
 
