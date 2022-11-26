@@ -1,21 +1,31 @@
 version: '3'
 services:
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq_dev
-    restart: on-failure
+#  rabbitmq:
+#    image: rabbitmq:3-management
+#    container_name: rabbitmq_dev
+#    restart: on-failure
+#    ports:
+#      - "15672:15672"
+#      - "5672:5672"
+#    volumes:
+#      - ./.docker-volumes/rabbitmq_dev_volume:/var/lib/rabbitmq
+#  postgres:
+#    image: postgres
+#    restart: on-failure
+#    container_name: postgresql_dev
+#    environment:
+#      POSTGRES_PASSWORD: rise
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - ./.docker-volumes/postgresql_dev_volume:/var/lib/postgresql/data
+  ocelot:
+    image: ${DOCKER_REGISTRY-}contactservice
+    build:
+        context: .
+        dockerfile: ApiGateway/Dockerfile
     ports:
-      - "15672:15672"
-      - "5672:5672"
-    volumes:
-      - ./.docker-volumes/rabbitmq_dev_volume:/var/lib/rabbitmq
-  postgres:
-    image: postgres
-    restart: on-failure
-    container_name: postgresql_dev
+      - "5001:80"
     environment:
-      POSTGRES_PASSWORD: rise
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./.docker-volumes/postgresql_dev_volume:/var/lib/postgresql/data
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80

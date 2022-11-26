@@ -11,7 +11,7 @@ docker-compose up -d
 - RabbitMQ: http://localhost:15672
 - postgresql: localhost:5432
   - user: postgres, password: rise
-- api gateway: http://localhost:5000
-- contact service: http://localhost:5001
-- report service: http://localhost:5002
+- api gateway: http://localhost:5001
+- contact service: http://localhost:5005
+- report service: http://localhost:5007
 - vue3 app: http://localhost:8080
