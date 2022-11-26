@@ -36,6 +36,7 @@ bld/
 .vs/
 .idea/
 .docker-volumes/
+docker-volumes/
 # Common IntelliJ Platform excludes
 
 # User specific
