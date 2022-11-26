@@ -25,12 +25,20 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Respawn" Version="6.0.0" />
+        <PackageReference Include="Respawn" Version="4.0.0" />
         <PackageReference Include="Respawn.Postgres" Version="1.0.15" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\ContactService.Api\ContactService.Api.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="appsettings.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>
