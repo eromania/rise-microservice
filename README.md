@@ -1,6 +1,6 @@
 # rise-microservice
 
-![](../rise-microservice-private/rise-microservice.drawio.png)
+![](rise-microservice.drawio.png)
 
 # run
 
