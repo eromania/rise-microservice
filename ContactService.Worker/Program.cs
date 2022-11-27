@@ -9,8 +9,6 @@ using HttpClient client = new();
 client.DefaultRequestHeaders.Accept.Clear();
 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-await ProcessRepositoriesAsync(client);
-
 //subscribe for the report requested event
 var queue = "report-request-quee";
 var factory = new ConnectionFactory { HostName = "localhost" }; 
