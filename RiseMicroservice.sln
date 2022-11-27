@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactService.Api.UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactService.Api.IntegrationTests", "ContactService.Api.IntegrationTests\ContactService.Api.IntegrationTests.csproj", "{9489A99E-29F9-4666-BA69-2F056422257A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactService.Worker", "ContactService.Worker\ContactService.Worker.csproj", "{0DA28F18-7C13-47C9-ACBD-776C269F5C34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,7 @@ Global
 		{4630504A-9FC3-4C0E-91CF-DF095A34B30F} = {1E46DB37-E4F2-401E-9304-343C56A78A8F}
 		{4C2EAA19-E327-43E4-A297-75075AE39B5F} = {1E46DB37-E4F2-401E-9304-343C56A78A8F}
 		{9489A99E-29F9-4666-BA69-2F056422257A} = {1E46DB37-E4F2-401E-9304-343C56A78A8F}
+		{0DA28F18-7C13-47C9-ACBD-776C269F5C34} = {1E46DB37-E4F2-401E-9304-343C56A78A8F}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AE830C9B-4A43-4246-9FE5-1F55F69BDC50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -43,5 +46,9 @@ Global
 		{9489A99E-29F9-4666-BA69-2F056422257A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9489A99E-29F9-4666-BA69-2F056422257A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9489A99E-29F9-4666-BA69-2F056422257A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DA28F18-7C13-47C9-ACBD-776C269F5C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DA28F18-7C13-47C9-ACBD-776C269F5C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DA28F18-7C13-47C9-ACBD-776C269F5C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DA28F18-7C13-47C9-ACBD-776C269F5C34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

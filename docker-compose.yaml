@@ -29,8 +29,15 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-  contactservice:
-    image: ${DOCKER_REGISTRY-}contactservice
+  contactserviceworker:
+    image: ${DOCKER_REGISTRY-}contactserviceworker
+    build:
+      context: .
+      dockerfile: ContactService.Worker/Dockerfile
+    depends_on:
+      - rabbitmq
+  contactserviceapi:
+    image: ${DOCKER_REGISTRY-}contactserviceapi
     build:
       context: .
       dockerfile: ContactService.Api/Dockerfile 
