@@ -11,7 +11,7 @@ public class GetContactItemTypesTest : TestBase
 
 {
     [Test]
-    public async Task ShouldReturnContactItemTypes()
+    public async Task ShouldReturnDefaultContactItemTypes()
     {
         var query = new GetContactItemTypesQuery();
 
