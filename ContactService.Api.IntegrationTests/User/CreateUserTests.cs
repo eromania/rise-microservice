@@ -1,7 +1,7 @@
-using ContactService.Api.Common.Exceptions;
 using ContactService.Api.Feature.User;
 using FluentAssertions;
 using NUnit.Framework;
+using ServiceCommon.Exceptions;
 
 namespace ContactService.Api.IntegrationTests.User;
 
@@ -30,10 +30,10 @@ public class CreateUserTests : TestBase
         
         var userId = await SendAsync(command);
 
-        var item = await FindAsync<Core.Entities.User>(userId);
+        var item = await FindAsync<Entities.User>(userId);
 
         item.Should().NotBeNull();
-        item.Name.Should().Be(command.Name);
+        item!.Name.Should().Be(command.Name);
         item.Surname.Should().Be(command.Surname);
         item.Company.Should().Be(command.Company);
         item.CreatedBy.Should().Be(111);

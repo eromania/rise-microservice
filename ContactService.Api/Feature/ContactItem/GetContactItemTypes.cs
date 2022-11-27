@@ -2,7 +2,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using ContactService.Api.Common.Mappings;
 using ContactService.Api.Common.Models;
-using ContactService.Api.Core.Entities;
+using ContactService.Api.Entities;
 using ContactService.Api.Infrastrcuture.Persistence;
 using FluentValidation;
 using MediatR;

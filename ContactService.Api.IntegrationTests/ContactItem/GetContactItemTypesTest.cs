@@ -1,4 +1,4 @@
-using ContactService.Api.Core.Entities;
+using ContactService.Api.Entities;
 using ContactService.Api.Feature.ContactItem;
 using FluentAssertions;
 using NUnit.Framework;

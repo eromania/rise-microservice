@@ -8,8 +8,8 @@ public static class RabbitMQProducer
 {
     public static void SendMessage<T>(T message)
     {
-        var queue = "report-response-quee";
-        var factory = new ConnectionFactory { HostName = "localhost" };
+        var queue = "report-response-queue";
+        var factory = new ConnectionFactory {HostName = "localhost"};
         var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
         channel.QueueDeclare(queue);

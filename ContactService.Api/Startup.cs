@@ -1,12 +1,12 @@
 using System.Reflection;
-using ContactService.Api.Common.Behaviours;
-using ContactService.Api.Common.Interfaces;
 using ContactService.Api.Infrastrcuture.Persistence;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
+using ServiceCommon.Behaviours;
+using ServiceCommon.Interfaces;
 
 namespace ContactService.Api;
 

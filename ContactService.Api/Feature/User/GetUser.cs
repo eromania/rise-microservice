@@ -1,5 +1,4 @@
 using AutoMapper;
-using ContactService.Api.Common.Exceptions;
 using ContactService.Api.Common.Mappings;
 using ContactService.Api.Common.Models;
 using ContactService.Api.Infrastrcuture.Persistence;
@@ -7,6 +6,7 @@ using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ServiceCommon.Exceptions;
 
 namespace ContactService.Api.Feature.User;
 
@@ -46,7 +46,7 @@ public class UserVm
     public List<ContactItemDto> ContactItems { get; set; }
 }
 
-public class ContactItemDto : IMapFrom<Core.Entities.ContactItem>
+public class ContactItemDto : IMapFrom<Entities.ContactItem>
 {
     public int Id { get; set; }
     public int ContactItemTypeId { get; set; }
@@ -55,7 +55,7 @@ public class ContactItemDto : IMapFrom<Core.Entities.ContactItem>
 
     public void Mapping(Profile profile)
     {
-        profile.CreateMap<Core.Entities.ContactItem, ContactItemDto>()
+        profile.CreateMap<Entities.ContactItem, ContactItemDto>()
             .ForMember(d => d.ContactItemType, opt => opt.MapFrom(s => s.ContactItemType.Type));
     }
 }
@@ -79,7 +79,7 @@ internal class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserVm>
 
         if (entity == null)
         {
-            throw new NotFoundException(nameof(Core.Entities.User), request.Id);
+            throw new NotFoundException(nameof(Entities.User), request.Id);
         }
         
         return new UserVm

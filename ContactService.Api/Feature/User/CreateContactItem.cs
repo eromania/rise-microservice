@@ -48,7 +48,7 @@ internal class CreateUserContactItemCommandHandler : IRequestHandler<CreateUserC
 
     public async Task<int> Handle(CreateUserContactItemCommand request, CancellationToken cancellationToken)
     {
-        var entity = new Core.Entities.ContactItem
+        var entity = new Entities.ContactItem
         {
             UserId = request.UserId,
             ContactItemTypeId = request.ContactItemTypeId,

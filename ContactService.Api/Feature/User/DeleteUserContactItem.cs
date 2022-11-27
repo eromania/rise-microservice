@@ -1,10 +1,10 @@
-using ContactService.Api.Common.Exceptions;
 using ContactService.Api.Common.Models;
 using ContactService.Api.Infrastrcuture.Persistence;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ServiceCommon.Exceptions;
 
 namespace ContactService.Api.Feature.User;
 
@@ -52,7 +52,7 @@ internal class DeleteUserContactItemCommandHandler : IRequestHandler<DeleteUserC
 
         if (entity == null)
         {
-            throw new NotFoundException(nameof(Core.Entities.ContactItem), request.ContactItemId);
+            throw new NotFoundException(nameof(Entities.ContactItem), request.ContactItemId);
         }
 
         entity.IsValid = 0;

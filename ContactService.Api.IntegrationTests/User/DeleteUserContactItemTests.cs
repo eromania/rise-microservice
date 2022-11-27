@@ -1,8 +1,8 @@
-using ContactService.Api.Common.Exceptions;
 using ContactService.Api.Feature.ContactItem;
 using ContactService.Api.Feature.User;
 using FluentAssertions;
 using NUnit.Framework;
+using ServiceCommon.Exceptions;
 
 namespace ContactService.Api.IntegrationTests.User;
 
@@ -46,8 +46,8 @@ public class DeleteUserContactItemTests : TestBase
             ContactItemId = itemId
         });
 
-        var item = await FindAsync<Core.Entities.ContactItem>(itemId);
+        var item = await FindAsync<Entities.ContactItem>(itemId);
 
-        item.IsValid.Should().Be(0);
+        item!.IsValid.Should().Be(0);
     }
 }

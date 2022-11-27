@@ -1,8 +1,8 @@
-using ContactService.Api.Common.Exceptions;
 using ContactService.Api.Feature.ContactItem;
 using ContactService.Api.Feature.User;
 using FluentAssertions;
 using NUnit.Framework;
+using ServiceCommon.Exceptions;
 
 namespace ContactService.Api.IntegrationTests.User;
 
@@ -42,7 +42,7 @@ public class CreateUserContactItemTests : TestBase
 
         var itemId = await SendAsync(command);
 
-        var item = await FindAsync<Core.Entities.ContactItem>(itemId);
+        var item = await FindAsync<Entities.ContactItem>(itemId);
 
         item.Should().NotBeNull();
         item!.UserId.Should().Be(command.UserId);

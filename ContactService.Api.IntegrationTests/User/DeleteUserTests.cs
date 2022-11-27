@@ -1,7 +1,7 @@
-using ContactService.Api.Common.Exceptions;
 using ContactService.Api.Feature.User;
 using FluentAssertions;
 using NUnit.Framework;
+using ServiceCommon.Exceptions;
 
 namespace ContactService.Api.IntegrationTests.User;
 
@@ -37,9 +37,9 @@ public class DeleteUserTests : TestBase
         
         await SendAsync(deleteCommand);
         
-        var item = await FindAsync<Core.Entities.User>(userId);
+        var item = await FindAsync<Entities.User>(userId);
 
-        item.IsValid.Should().Be(0);
+        item!.IsValid.Should().Be(0);
         item.LastModified.Should().NotBeNull();
         item.LastModifiedBy.Should().NotBeNull();
 

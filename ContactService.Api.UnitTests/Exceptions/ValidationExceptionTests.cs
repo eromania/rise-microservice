@@ -1,7 +1,7 @@
-using ContactService.Api.Common.Exceptions;
 using FluentAssertions;
 using FluentValidation.Results;
 using NUnit.Framework;
+using ServiceCommon.Exceptions;
 
 namespace ContactService.Api.UnitTests.Exceptions;
 

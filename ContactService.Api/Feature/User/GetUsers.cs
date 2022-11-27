@@ -28,7 +28,7 @@ public class GetUsersQueryValidator : AbstractValidator<GetUsersQuery>
 {
 }
 
-public class UserDto : IMapFrom<Core.Entities.User>
+public class UserDto : IMapFrom<Entities.User>
 {
     public int Id { get; set; }
     public string Name { get; set; }

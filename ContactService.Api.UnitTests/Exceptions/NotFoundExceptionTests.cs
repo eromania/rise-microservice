@@ -1,8 +1,6 @@
-using ContactService.Api.Common.Exceptions;
 using FluentAssertions;
-using FluentValidation.Results;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using NUnit.Framework;
+using ServiceCommon.Exceptions;
 
 namespace ContactService.Api.UnitTests.Exceptions;
 
@@ -14,7 +12,7 @@ public class NotFoundExceptionTests
         var actual = new NotFoundException();
 
         actual.Message.Should()
-            .BeEquivalentTo("Exception of type 'ContactService.Api.Common.Exceptions.NotFoundException' was thrown.");
+            .BeEquivalentTo("Exception of type 'ServiceCommon.Exceptions.NotFoundException' was thrown.");
     }
 
     [Test]
@@ -35,7 +33,7 @@ public class NotFoundExceptionTests
         var actual = new NotFoundException(message, new Exception(innerMesage));
 
         actual.Message.Should().BeEquivalentTo(message);
-        actual.InnerException.Message.Should().BeEquivalentTo(innerMesage);
+        actual.InnerException?.Message.Should().BeEquivalentTo(innerMesage);
     }
     
     [Test]

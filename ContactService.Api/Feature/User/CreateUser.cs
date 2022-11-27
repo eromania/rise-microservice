@@ -51,7 +51,7 @@ internal class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, int
 
     public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
-        var entity = new Core.Entities.User
+        var entity = new Entities.User
         {
             Name = request.Name,
             Surname = request.Surname,

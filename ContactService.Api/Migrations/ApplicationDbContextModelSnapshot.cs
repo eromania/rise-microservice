@@ -22,7 +22,7 @@ namespace ContactService.Api.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("ContactService.Api.Core.Entities.ContactItem", b =>
+            modelBuilder.Entity("ContactService.Api.Entities.ContactItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -65,7 +65,7 @@ namespace ContactService.Api.Migrations
                     b.ToTable("ContactItem", "ContactModel");
                 });
 
-            modelBuilder.Entity("ContactService.Api.Core.Entities.ContactItemType", b =>
+            modelBuilder.Entity("ContactService.Api.Entities.ContactItemType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -98,7 +98,7 @@ namespace ContactService.Api.Migrations
                     b.ToTable("ContactItemType", "ContactModel");
                 });
 
-            modelBuilder.Entity("ContactService.Api.Core.Entities.User", b =>
+            modelBuilder.Entity("ContactService.Api.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -141,15 +141,15 @@ namespace ContactService.Api.Migrations
                     b.ToTable("User", "PersonModel");
                 });
 
-            modelBuilder.Entity("ContactService.Api.Core.Entities.ContactItem", b =>
+            modelBuilder.Entity("ContactService.Api.Entities.ContactItem", b =>
                 {
-                    b.HasOne("ContactService.Api.Core.Entities.ContactItemType", "ContactItemType")
+                    b.HasOne("ContactService.Api.Entities.ContactItemType", "ContactItemType")
                         .WithMany()
                         .HasForeignKey("ContactItemTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ContactService.Api.Core.Entities.User", "User")
+                    b.HasOne("ContactService.Api.Entities.User", "User")
                         .WithMany("ContactItems")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -160,7 +160,7 @@ namespace ContactService.Api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ContactService.Api.Core.Entities.User", b =>
+            modelBuilder.Entity("ContactService.Api.Entities.User", b =>
                 {
                     b.Navigation("ContactItems");
                 });
