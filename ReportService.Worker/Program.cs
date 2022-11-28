@@ -1,19 +1,24 @@
-﻿using System.Net.Http.Headers;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 using System.Text;
-using ContactService.Worker;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using ReportService.Worker;
 
 
+// var message = "\"{\"reportId\":37,\"data\":[{\"location\":\"ankara\",\"userCount\":1,\"telephoneCount\":1}]}\"";
+// var json = message.Replace('\\', ' ').Trim().Substring(1, message.Length - 2).Replace("\"", "'");
+// var reportId = JObject.Parse(json)["reportId"];//!.First().Value<string>();
+
+
+
+
 using HttpClient client = new();
 client.DefaultRequestHeaders.Accept.Clear();
-client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
 //subscribe for the report requested event
-var queue = "report-request-queue";
+var queue = "report-response-queue";
 var factory = new ConnectionFactory {HostName = "localhost"};
 var connection = factory.CreateConnection();
 using var channel = connection.CreateModel();
@@ -33,15 +38,20 @@ channel.BasicConsume(queue: queue, autoAck: true, consumer: consumer);
 
 static async Task ProcessRepositoriesAsync(HttpClient client, string message)
 {
-    //get the json data from the contact service report api
-    var uri = $"http://localhost:5005/api/report/{int.Parse(message.Replace('"', ' ').Trim())}/data-by-location";
-    
-    var toSend = await client.GetFromJsonAsync<ReportVm>(uri);
-    
-    //send reportresponse message to the queue
-    RabbitMQProducer.SendMessage(toSend);
-    
-    Console.WriteLine(toSend);
+    try
+    {
+        //deserialize the message
+        var reportVm = JsonConvert.DeserializeObject<ReportVm>(message);
+        
+        //put message to the report service
+        var response = await client.PutAsJsonAsync($"http://localhost:5007/api/reports/{reportVm!.ReportId}", message);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e);
+    }
+
+    Console.WriteLine("report prepared");
 }
 
 

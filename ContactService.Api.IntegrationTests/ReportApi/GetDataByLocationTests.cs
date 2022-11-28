@@ -1,4 +1,5 @@
 using ContactService.Api.Feature.ContactItem;
+using ContactService.Api.Feature.ReportApi;
 using ContactService.Api.Feature.User;
 using FluentAssertions;
 using NUnit.Framework;
@@ -45,6 +46,6 @@ public class GetDataByLocationTests : TestBase
         
         var result = await SendAsync(new GetDataByLocationQuery());
 
-        result.Should().HaveCountGreaterThan(0);
+        result.Data.Should().HaveCountGreaterThan(0);
     }
 }

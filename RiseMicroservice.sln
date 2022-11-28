@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceCommon", "ServiceCom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportService.Api.IntegrationTests", "ReportService.Api.IntegrationTests\ReportService.Api.IntegrationTests.csproj", "{A3507192-14E5-424C-A82E-241031FC3819}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportService.Worker", "ReportService.Worker\ReportService.Worker.csproj", "{AB53067D-23BF-42EA-AEDE-21FFCF771FC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,7 @@ Global
 		{39ACF1A8-9B62-40B4-AABC-F901AC027A27} = {82DFE4C5-4129-4906-B471-39207DCE0230}
 		{45EBEABB-C077-4D24-8C3F-D81C85EAC2C8} = {8D34AEB9-AAAD-4705-96E0-B7929EE5817C}
 		{A3507192-14E5-424C-A82E-241031FC3819} = {82DFE4C5-4129-4906-B471-39207DCE0230}
+		{AB53067D-23BF-42EA-AEDE-21FFCF771FC0} = {82DFE4C5-4129-4906-B471-39207DCE0230}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AE830C9B-4A43-4246-9FE5-1F55F69BDC50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -74,5 +77,9 @@ Global
 		{A3507192-14E5-424C-A82E-241031FC3819}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3507192-14E5-424C-A82E-241031FC3819}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3507192-14E5-424C-A82E-241031FC3819}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB53067D-23BF-42EA-AEDE-21FFCF771FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB53067D-23BF-42EA-AEDE-21FFCF771FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB53067D-23BF-42EA-AEDE-21FFCF771FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB53067D-23BF-42EA-AEDE-21FFCF771FC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

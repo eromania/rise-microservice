@@ -12,7 +12,7 @@ public static class RabbitMQProducer
         var factory = new ConnectionFactory {HostName = "localhost"};
         var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
-        channel.QueueDeclare(queue);
+        channel.QueueDeclare(queue, false, false, false, null);
 
         var json = JsonConvert.SerializeObject(message);
         var body = Encoding.UTF8.GetBytes(json);

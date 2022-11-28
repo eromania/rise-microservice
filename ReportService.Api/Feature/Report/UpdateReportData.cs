@@ -10,9 +10,9 @@ namespace ReportService.Api.Feature.Report;
 public class UpdateReportDataController : ApiControllerBase
 {
     [HttpPut("/api/reports/{id}")]
-    public async Task<ActionResult> Update(int id, UpdateReportDataCommand command)
+    public async Task<ActionResult> Update(int id, [FromBody]string reportData)
     {
-        await Mediator.Send(new UpdateReportDataCommand() {Id = id, ReportData = command.ReportData});
+        await Mediator.Send(new UpdateReportDataCommand() {Id = id, ReportData = reportData});
 
         return NoContent();
     }

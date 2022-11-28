@@ -31,9 +31,15 @@ public class GetUsersQueryValidator : AbstractValidator<GetReportsQuery>
 public class ReportDto : IMapFrom<Entities.Report>
 {
     public int Id { get; set; }
-    public DateTime RequstDateTime { get; set; }
+    public DateTime RequestDateTime { get; set; }
     public string Status { get; set; }
     public string ReportData { get; set; }
+    
+    public void Mapping(Profile profile)
+    {
+        profile.CreateMap<Entities.Report, ReportDto>()
+            .ForMember(d => d.RequestDateTime, opt => opt.MapFrom(s => s.Created));
+    }
 }
 
 internal class GetReportsQueryHandler : IRequestHandler<GetReportsQuery, IList<ReportDto>>
